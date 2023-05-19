@@ -8,20 +8,30 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import org.hibernate.validator.constraints.Length;
 
 @Entity
-@Table(name = "models")
+@Table(name = "spots")
 @Data
-public class Model {
+public class Spot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
+    private String description;
+    @ManyToOne
+    @JoinColumn(name = "country_id")
+    private Country country;
+    private String city;
+    private String date;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     @ManyToOne
     @JoinColumn(name = "make_id")
     private Make make;
-    @Length(max = 10240)
-    private String description;
-    private String years;
+    @ManyToOne
+    @JoinColumn(name = "model_id")
+    private Model model;
+    @ManyToOne
+    @JoinColumn(name = "trim_id")
+    private Trim trim;
 }

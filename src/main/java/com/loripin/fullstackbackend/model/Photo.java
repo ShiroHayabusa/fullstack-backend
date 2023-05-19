@@ -8,13 +8,12 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
+@Table(name = "photos")
 @Data
-@Table(name = "usr")
-public class User {
+public class Photo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
     private String name;
-    private String email;
+    private String description;
 }

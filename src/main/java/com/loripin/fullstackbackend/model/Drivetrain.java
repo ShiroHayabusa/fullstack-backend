@@ -8,13 +8,11 @@ import jakarta.persistence.Table;
 import lombok.Data;
 
 @Entity
+@Table(name = "drivetrains")
 @Data
-@Table(name = "usr")
-public class User {
+public class Drivetrain {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String username;
+    private Integer id;
     private String name;
-    private String email;
 }
